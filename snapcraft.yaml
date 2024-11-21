@@ -17,7 +17,7 @@ parts:
 
   vulkan-examples:
     plugin: dump
-    source: ./local/vulkan-examples/vulkan-examples-20241118.zip
+    source: https://github.com/faveoled/Vulkan/releases/download/20241118/vulkan-examples-20241118.zip
     stage-packages:
       - libgomp1
 
