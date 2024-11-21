@@ -1,0 +1,881 @@
+name: vulkan-examples
+base: core24
+version: '20241118'
+summary: S
+description: |
+  D
+
+platforms:
+  amd64:
+    build-on: [amd64]
+    build-for: [amd64]
+
+grade: stable
+confinement: strict
+
+parts:
+
+  vulkan-examples:
+    plugin: dump
+    source: ./local/vulkan-examples/vulkan-examples-20241118.zip
+    stage-packages:
+      - libgomp1
+
+
+  gpu-2404:
+    after: [vulkan-examples]
+    source: https://github.com/canonical/gpu-snap.git
+    plugin: dump
+    override-prime: |
+      craftctl default
+      ${CRAFT_PART_SRC}/bin/gpu-2404-cleanup mesa-2404
+    prime:
+    - bin/gpu-2404-wrapper
+
+apps:
+  bloom:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/bloom
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  bufferdeviceaddress:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/bufferdeviceaddress
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  computecloth:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/computecloth
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  computecullandlod:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/computecullandlod
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  computeheadless:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/computeheadless
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  computenbody:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/computenbody
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  computeparticles:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/computeparticles
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  computeraytracing:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/computeraytracing
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  computeshader:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/computeshader
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  conditionalrender:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/conditionalrender
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  conservativeraster:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/conservativeraster
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  debugprintf:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/debugprintf
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  debugutils:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/debugutils
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  deferred:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/deferred
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  deferredmultisampling:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/deferredmultisampling
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  deferredshadows:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/deferredshadows
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  descriptorbuffer:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/descriptorbuffer
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  descriptorindexing:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/descriptorindexing
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  descriptorsets:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/descriptorsets
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  displacement:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/displacement
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  distancefieldfonts:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/distancefieldfonts
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  dynamicrendering:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/dynamicrendering
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  dynamicstate:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/dynamicstate
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  dynamicuniformbuffer:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/dynamicuniformbuffer
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  gears:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/gears
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  geometryshader:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/geometryshader
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  gltfloading:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/gltfloading
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  gltfscenerendering:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/gltfscenerendering
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  gltfskinning:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/gltfskinning
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  graphicspipelinelibrary:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/graphicspipelinelibrary
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  hdr:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/hdr
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  hostimagecopy:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/hostimagecopy
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  indirectdraw:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/indirectdraw
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  inlineuniformblocks:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/inlineuniformblocks
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  inputattachments:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/inputattachments
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  instancing:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/instancing
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  meshshader:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/meshshader
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  multisampling:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/multisampling
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  multithreading:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/multithreading
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  multiview:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/multiview
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  negativeviewportheight:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/negativeviewportheight
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  occlusionquery:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/occlusionquery
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  offscreen:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/offscreen
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  oit:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/oit
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  parallaxmapping:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/parallaxmapping
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  particlesystem:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/particlesystem
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  pbrbasic:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/pbrbasic
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  pbribl:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/pbribl
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  pbrtexture:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/pbrtexture
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  pipelines:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/pipelines
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  pipelinestatistics:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/pipelinestatistics
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  pushconstants:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/pushconstants
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  pushdescriptors:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/pushdescriptors
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  radialblur:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/radialblur
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  rayquery:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/rayquery
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  raytracingbasic:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/raytracingbasic
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  raytracingcallable:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/raytracingcallable
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  raytracinggltf:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/raytracinggltf
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  raytracingintersection:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/raytracingintersection
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  raytracingpositionfetch:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/raytracingpositionfetch
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  raytracingreflections:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/raytracingreflections
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  raytracingsbtdata:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/raytracingsbtdata
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  raytracingshadows:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/raytracingshadows
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  raytracingtextures:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/raytracingtextures
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  renderheadless:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/renderheadless
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  screenshot:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/screenshot
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  shaderobjects:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/shaderobjects
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  shadowmapping:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/shadowmapping
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  shadowmappingcascade:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/shadowmappingcascade
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  shadowmappingomni:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/shadowmappingomni
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  specializationconstants:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/specializationconstants
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  sphericalenvmapping:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/sphericalenvmapping
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  ssao:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/ssao
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  stencilbuffer:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/stencilbuffer
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  subpasses:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/subpasses
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  terraintessellation:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/terraintessellation
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  tessellation:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/tessellation
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  textoverlay:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/textoverlay
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  texture:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/texture
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  texture3d:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/texture3d
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  texturearray:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/texturearray
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  texturecubemap:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/texturecubemap
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  texturecubemaparray:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/texturecubemaparray
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  texturemipmapgen:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/texturemipmapgen
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  texturesparseresidency:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/texturesparseresidency
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  timelinesemaphore:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/timelinesemaphore
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  triangle:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/triangle
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  trianglevulkan13:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/trianglevulkan13
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  variablerateshading:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/variablerateshading
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  vertexattributes:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/vertexattributes
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  viewportarray:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/viewportarray
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+  vulkanscene:
+    command-chain:
+      - bin/gpu-2404-wrapper
+    command: bin/vulkanscene
+    plugs:
+      - opengl
+      - wayland
+      - x11
+
+
+
+plugs:
+  gpu-2404:
+    interface: content
+    target: $SNAP/gpu-2404
+    default-provider: mesa-2404
+
+
+layout:
+  /usr/share/drirc.d:
+    bind: $SNAP/gpu/drirc.d
+  /usr/share/libdrm:
+    bind: $SNAP/gpu-2404/libdrm
+  /usr/share/X11/XErrorDB:
+    symlink: $SNAP/gpu-2404/X11/XErrorDB
+  /usr/share/vulkan-examples:
+    bind: $SNAP/assets
